@@ -47,16 +47,16 @@ spring:
             enable: true
 
   #------------- Google
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 468765125530B-o89gnv1057u983q4dmukjid50n438df0.apps.googleusercontent.com
-            client-secret: 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
-            scope:
-              - email
-              - profile
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: 468765125530B-o89gnv1057u983q4dmukjid50n438df0.apps.googleusercontent.com
+#            client-secret: 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
+#            scope:
+#              - email
+#              - profile
 
 
 logging:
