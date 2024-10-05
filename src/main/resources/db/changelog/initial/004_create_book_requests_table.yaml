@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004
+      author: Mirbek
+      changes:
+        - createTable:
+            tableName: book_requests
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: book_id
+                  type: long
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: long
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: book_requests
+            baseColumnNames: book_id
+            constraintName: fk_requests_books
+            referencedTableName: books
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            baseTableName: book_requests
+            baseColumnNames: user_id
+            constraintName: fk_requests_users
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE

@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002
+      author: Mirbek
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: image_preview
+                  type: varchar(255)
+              - column:
+                  name: is_available
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_date
+                  type: date
+              - column:
+                  name: category_id
+                  type: long
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: books
+            baseColumnNames: category_id
+            constraintName: fk_books_categories
+            referencedTableName: categories
+            referencedColumnNames: id
+            onDelete: CASCADE
