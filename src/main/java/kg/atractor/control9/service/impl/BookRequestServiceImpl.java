@@ -41,4 +41,14 @@ public class BookRequestServiceImpl implements BookRequestService {
         request.getBook().setIsAvailable(true);
         bookRequestRepository.save(request);
     }
+
+    @Override
+    public void deleteRequest(Long requestId) {
+        bookRequestRepository.deleteById(requestId);
+    }
+
+    @Override
+    public List<BookRequest> findAll() {
+        return bookRequestRepository.findAll();
+    }
 }

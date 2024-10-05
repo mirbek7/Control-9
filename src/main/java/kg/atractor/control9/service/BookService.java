@@ -12,4 +12,8 @@ public interface BookService {
     void save(Book book);
 
     List<Book> findAll();
+
+    void deleteBook(Long bookId);
+
+    void addBook(String title, String author, Long categoryId);
 }

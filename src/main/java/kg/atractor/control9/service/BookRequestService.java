@@ -13,4 +13,8 @@ public interface BookRequestService {
     List<BookRequest> findRequestsByUserAndDateRange(Long userId, LocalDate startDate, LocalDate endDate);
 
     void markAsReturned(Long requestId);
+
+    void deleteRequest(Long requestId);
+
+    List<BookRequest> findAll();
 }
